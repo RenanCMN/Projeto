@@ -11,9 +11,11 @@ module.exports = (sequelize, DataTypes) => {
     createdAt:DataTypes.DATE,
     updateAt:DataTypes.DATE
   }, {});
+
   Produtos.associate = function(models) {
-    
-    // associations can be defined here
+     // associations can be defined here
+      models.Produtos.belongsTo(models.Vendas)
+   
   };
   return Produtos;
 };
