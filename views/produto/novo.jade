@@ -1,0 +1,29 @@
+extends ../default
+
+block content
+  include ../templates/nav
+  div(class=['ui','container','grid','stackable'])
+    div(class=['ten','wide','column'])
+      h2(class=['ui','header','blue','dividing'])= 'Criar Produtos'
+      
+      div(class='form-novoproduto')
+        form(class=['ui','form'] action="http://localhost:3000/criandoproduto" method="POST")
+          div(class=['ui','field'])
+            label(for="nome")='Nome Produto'
+            input(type="text" name="nome" placeholder="Nome Produto")
+          div(class=['ui','two','fields']) 
+             div(class=['ui','field'])
+               label(for="nome")='Preco'
+               input(type="text" name="preco" placeholder="Preco") 
+             div(class=['ui','field'])
+               label(for="nome")='Estoque'
+               input(type="text" name="estoque" placeholder="Estoque") 
+          button(class=['ui','button','basic','black'])='Criar Produto'
+          div(class=['ui','message','error'])
+      if info != undefined
+        div(class=['ui','message','success'])
+          i(class=['close','icon'])
+          div(class='header')='Produto Criadodo div'
+          p=info
+
+  script(src='/javascripts/validacion.js')

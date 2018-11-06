@@ -1,0 +1,10 @@
+extends default
+
+block content
+  include templates/nav
+  div(class=['ui','container','grid','stackable'])
+    div(class=['ten','wide','column'])
+      <canvas id="myChart"></canvas>
+
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.4.0/Chart.min.js")
+  script(src="/javascripts/painel.js")

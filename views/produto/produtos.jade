@@ -1,0 +1,31 @@
+extends ../default
+
+block content
+  include ../templates/nav
+  div(class=['ui','container','grid','stackable'])
+    div(class=['sixteen','wide','column'])
+      h2(class=['ui','header','blue','dividing'])= 'Lista Produtos'
+      table(class=['ui','table','called'] id='tbl-produtos')
+        thead
+          tr
+            th='ID'
+            th='Nome'
+            th='Preco'
+            th='Estoque'
+            th='Acoes'
+        tbody
+          each produtos in Produtos
+            tr
+              td(id='id_produto')=produtos.id_produto
+              td=produtos.nome
+              td=produtos.preco
+              td=produtos.estoque
+              td
+                a(class=['ui button basic icon'] href='#' data-tooltip='Excluir' id='btn-excluir' data-inverted='' data-position='top center')
+                  i(class=['trash icon'])
+                a(class=['ui button basic icon'] href='http://localhost:3000/alterar/'+produtos.id_produto data-tooltip='Alterar' data-inverted='' data-position='top center')
+                  i(class=['edit outline icon']) 
+                a(class=['ui button basic icon'] href='http://localhost:3000/vendas/'+produtos.id_produto data-tooltip='Vender' data-inverted='' data-position='top center')
+                  i(class=['dollar sign icon']) 
+  
+  script(src="/javascripts/produto.js")
