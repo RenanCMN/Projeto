@@ -11,11 +11,12 @@ router.get('/', controllers.home.index);
 router.get('/produtos',controllers.produtos.getprodutos );
 router.get('/novo',controllers.produtos.getnovoproduto);
 router.post('/criandoproduto',controllers.produtos.postnovoproduto);
-router.post('/excluirproduto',controllers.produtos.excluirproduto);
+router.delete('/excluirproduto',controllers.produtos.excluirproduto);
 router.get('/alterar/:id',controllers.produtos.alterarproduto);
-router.post('/editar',controllers.produtos.postalterarproduto);
-router.get('/vendas/:id', controllers.produtos.vendaproduto);
-router.post('/prees',controllers.produtos.vendaprodpre); // preco e estoque 
-router.get('/relatorio',controllers.produtos.relatoriovenda);
+router.put('/editar',controllers.produtos.postalterarproduto);
+//vendas
+router.get('/vendas/:id', controllers.vendas.vendaproduto);
+router.post('/prees',controllers.vendas.vendaprodpre); // preco e estoque 
+router.get('/relatorio',controllers.vendas.relatoriovenda);
 
 module.exports = router;
